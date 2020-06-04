@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { SearchForm } from "./Components/SearchForm";
+import { MovieInfo } from "./Components/MovieInfo";
+import "./App.scss";
 
 function App() {
+  const [movie, setMovie] = useState({});
+  const isEmpty = (obj) => {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) return false;
+    }
+
+    return true;
+  };
+  const clearMovie = () => {
+    setMovie({});
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchForm movieSet={setMovie} />
+      {!isEmpty(movie) ? (
+        <div className="movie-container">
+        <MovieInfo currentMovie={movie} clearMovie={clearMovie} />
+        </div>
+      ) : null}
     </div>
   );
 }

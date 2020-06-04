@@ -1,0 +1,24 @@
+.movie-buttons {
+  width: 55%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+
+  button {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    margin-top: 7px;
+  }
+  button:hover {
+    background-color: #fff;
+    border-color: #000000;
+    color: #000000;
+    cursor: pointer;
+  }
+}
