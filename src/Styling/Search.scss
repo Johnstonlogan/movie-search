@@ -1,38 +1,11 @@
-.search-container {
+.search {
   padding: 10px;
   display: flex;
-  width: 90%;
-  margin: 0 auto;
-
+  width: 100%;
   label {
     display: flex;
     flex-direction: column;
     width: 90%;
-
-    i {
-      font-size: x-small;
-      float: right;
-      color: #9e0000;
-    }
-  }
-  input {
-    height: 25px;
-    border-radius: 5px;
-    border: 1px black solid;
-  }
-  input:focus {
-    outline: none;
-  }
-  select {
-    height: 25px;
-    border-radius: 5px;
-    border: 1px black solid;
-  }
-
-  legend {
-    text-align: center;
-    font-size: x-large;
-    margin-bottom: 20px;
   }
 
   form {
@@ -45,30 +18,48 @@
     flex-direction: column;
     align-items: center;
   }
-}
-.search {
-  margin-top: 20px;
-  width: 90%;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px black solid;
-}
-.search-clearform {
-  margin-top: 5px;
-  width: 90%;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px black solid;
+  &__button:hover {
+    background-color: #313131;
+    border: #ffffff solid 1px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  &__button {
+    margin-top: 20px;
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px black solid;
+    &__group {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-evenly;
+    }
+  }
+  &__clearform {
+    margin-top: 5px;
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px black solid;
+  }
+  &__input {
+    height: 30px;
+  }
+  &__select {
+    height: 36px;
+  }
 }
 
-@media only screen and (min-width: 768px) {
-  .search-container {
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 45%;
-    form {
-      height: auto;
-      width: 100%;
+@media only screen and (max-width: 425px) {
+  .search {
+    &__button {
+      width: 90%;
+      margin: 15px auto;
+      &__group {
+        flex-direction: column;
+      }
     }
   }
 }

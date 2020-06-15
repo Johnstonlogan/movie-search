@@ -2,8 +2,12 @@ import React from "react";
 
 export const YearSelect = (props) => {
   return (
-    <select name="movie-year" onChange={e => props.onSelect(e.target.value)}>
-      <option defaultValue  ></option>
+    <select
+      className={props.Inputclass}
+      name="movie-year"
+      onChange={(e) => props.onSelect(e.target.value)}
+    >
+      <option defaultValue></option>
       <option value="2020">2020</option>
       <option value="2019">2019</option>
       <option value="2018">2018</option>

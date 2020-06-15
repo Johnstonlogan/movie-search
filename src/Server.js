@@ -6,3 +6,8 @@ export const getMovie = (payload) =>{
     return axios.get(baseUrl + "/getMovie", {params: {movie: payload.movieName, year:payload.movieYear}})
 
 }
+
+export const getPopularMovies = () => {
+
+    return axios.get(baseUrl + "/getPopularMovies")
+}

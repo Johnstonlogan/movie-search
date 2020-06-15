@@ -9,7 +9,11 @@ export const SearchForm = (props) => {
   let payload = { movieName: movie, movieYear: year };
   const onSubmit = (e) => {
     getMovie(payload).then((res) => {
-      props.movieSet(res.data.movieNews);
+      if (res.data.movieNews.Response === "False") {
+        props.movieSet({ Title: "Movie Not Found" });
+      } else {
+        props.movieSet(res.data.movieNews);
+      }
     });
   };
   const validateForm = (e) => {
@@ -22,14 +26,12 @@ export const SearchForm = (props) => {
   };
 
   return (
-    <div className="search-container">
+    <div className="search">
       <form>
-        <legend>Movie Search</legend>
         <label>
-          <span>
-            Movie name: <i>* required</i>
-          </span>
+          <span>Movie name:</span>
           <input
+            className="search__input"
             name="movie"
             type="text"
             value={movie}
@@ -39,14 +41,22 @@ export const SearchForm = (props) => {
         </label>
         <label>
           Year:
-          <YearSelect onSelect={setYear} />
+          <YearSelect Inputclass="search__select" onSelect={setYear} />
         </label>
-        <input
-          className="search"
-          type="submit"
-          value="Search"
-          onClick={(e) => validateForm(e)}
-        />
+        <div className="search__button__group">
+          <input
+            className="search__button"
+            type="submit"
+            value="Search"
+            onClick={(e) => validateForm(e)}
+          />
+          <input
+            className="search__button"
+            type="submit"
+            value="Clear"
+            onClick={() => props.clearMovie()}
+          />
+        </div>
       </form>
     </div>
   );
